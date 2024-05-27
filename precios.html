@@ -2,9 +2,8 @@
 <html lang="en">
 
 <head>
-
-  <style>
-         #priceList {
+    <style>
+        #priceList {
             margin-top: 20px;
             text-align: center;
         }
@@ -12,7 +11,10 @@
         #priceList table {
             margin: 0 auto;
             border-collapse: collapse;
-            width: 80%;
+            width: 95%;
+            background-color: orange;
+            border-radius: 15px;
+            overflow: hidden;
         }
 
         #priceList th, #priceList td {
@@ -23,117 +25,87 @@
         #priceList th {
             background-color: #24a0ed;
         }
-
-
     </style>
 
-  
+    <!-- Page Information -->
+    <meta charset="utf-8">
+    <title>Mr. Taco Querétaro</title>
+    <meta name="description" content="https://littlelink.io">
+    <meta name="author" content="Seth Cottle">
 
-  <!-- Page Information
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Mr. Taco Querétaro</title>
-  <meta name="description" content="https://littlelink.io">
-  <meta name="author" content="Seth Cottle">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
 
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-
-    <!-- Themes:
-            Auto:   css/skeleton-auto.css
-            Light:  css/skeleton-light.css
-            Dark:   css/skeleton-dark.css
-     -->
+    <!-- Themes -->
     <link rel="stylesheet" href="css/skeleton-dark.css">
 
     <!-- Brand Styles -->
     <link rel="stylesheet" href="css/brands.css">
 
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/logo.png">
-
-  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 
 <body>
+    <!-- Primary Page Layout -->
+    <div class="container">
+        <div class="row">
+            <div class="column" style="margin-top: 10%">
+                <div id="priceList">
+                    <h2>Lista de Precios</h2>
+                    <table>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio (MXN)</th>
+                        </tr>
+                        <tr>
+                            <td>Taco de pibil</td>
+                            <td>$19.00</td>
+                        </tr>
+                        <tr>
+                            <td>Gordita de carne</td>
+                            <td>$19.00</td>
+                        </tr>
+                        <tr>
+                            <td>Gordita de guiso</td>
+                            <td>$17.00</td>
+                        </tr>
+                        <tr>
+                            <td>Bocol de carne</td>
+                            <td>$22.00</td>
+                        </tr>
+                        <tr>
+                            <td>Bocol de guiso</td>
+                            <td>$20.00</td>
+                        </tr>
+                        <tr>
+                            <td>Torta</td>
+                            <td>$80.00</td>
+                        </tr>
+                        <tr>
+                            <td>Pemoles</td>
+                            <td>$50.00</td>
+                        </tr>
+                        <tr>
+                            <td>Refresco / Avia</td>
+                            <td>$35.00</td>
+                        </tr>
+                        <tr>
+                            <td>Agua Natural / Cafe</td>
+                            <td>$25.00</td>
+                        </tr>
+                    </table>
+                </div>
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <div class="row">
-      <div class="column" style="margin-top: 10%">
-
-      <div id="priceList">
-        <h2>Lista de Precios</h2>
-        <table>
-            <tr>
-                <th>Producto</th>
-                <th>Precio (MXN)</th>
-            </tr>
-            <tr>
-                <td>Taco de pibil</td>
-                <td>$19.00</td>
-            </tr>
-            <tr>
-                <td>Gordita de carne</td>
-                <td>$19.00</td>
-            </tr>
-            <tr>
-                <td>Gordita de guiso</td>
-                <td>$17.00</td>
-            </tr>
-            <tr>
-                <td>Bocol de carne</td>
-                <td>$22.00</td>
-            </tr>
-            <tr>
-                <td>Bocol de guiso</td>
-                <td>$20.00</td>
-            </tr>
-            <tr>
-                <td>Torta</td>
-                <td>$80.00</td>
-            </tr>
-            <tr>
-                <td>Pemoles</td>
-                <td>$50.00</td>
-            </tr>
-            <tr>
-                <td>Refresco / Avia</td>
-                <td>$35.00</td>
-            </tr>
-            <tr>
-                <td>Agua Natural / Cafe</td>
-                <td>$25.00</td>
-            </tr>
-        </table>
+                <p style="margin-top: 20px;">© 2024 @mrtaco.qro | <a href="https://www.mrtacoqro.com">mrtacoqro.com</a></p>
+            </div>
+        </div>
     </div>
 
-      
-        
-        
-        <!-- 
-            Footer:
-            This includes a link to privacy.html page which can be setup for your Privacy Policy.
-            This also includes a link to the LittleLink repository to make forking LittleLink easier.
-            You can edit or remove anything here to make your own footer.
-        -->
-            <p style="margin-top: 20px;">© 2024 @mrtaco.qro | <a href="https://www.mrtacoqro.com">mrtacoqro.com</a></p
-
-      </div>
-    </div>
-  </div>
-
-  <!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- End Document -->
 </body>
 
 </html>
