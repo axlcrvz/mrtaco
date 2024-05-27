@@ -2,42 +2,10 @@
 <html lang="en">
 
 <head>
-  <!-- Page Information
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Mr. Taco Querétaro</title>
-  <meta name="description" content="https://littlelink.io">
-  <meta name="author" content="Seth Cottle">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-
-    <!-- Themes:
-            Auto:   css/skeleton-auto.css
-            Light:  css/skeleton-light.css
-            Dark:   css/skeleton-dark.css
-     -->
-    <link rel="stylesheet" href="css/skeleton-dark.css">
-
-    <!-- Brand Styles -->
-    <link rel="stylesheet" href="css/brands.css">
-
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/logo.png">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Calculator Website</title>
-
-      <style>
+    <style>
         #total {
             color: white;
             background-color: green;
@@ -115,84 +83,84 @@
 </head>
 
 <body>
-  <img id="logo" src="images/logo.png" alt="Logo">
-  <div id="calculator">
-    <h2>Calculadora</h2>
-    <input type="tel" id="inputNumber" placeholder="Cantidad" pattern="[0-9]*" oninput="checkInput()">
-  </div>
-  <div id="rectangles">
-    <div class="rectangle-container">
-      <button class="button button-default" onclick="calculateTotal('T. de pibil / G. de carne', 19)">T. Pibil / G. Carne</button>
-      <button class="button button-default" onclick="calculateTotal('Gordita de guiso', 17)">Gordita de guiso</button>
+    <img id="logo" src="images/logo.png" alt="Logo">
+    <div id="calculator">
+        <h2>Calculadora</h2>
+        <input type="tel" id="inputNumber" placeholder="Cantidad" pattern="[0-9]*" oninput="checkInput()">
     </div>
-    <div class="rectangle-container">
-      <button class="button button-default" onclick="calculateTotal('Bocol de carne', 22)">Bocol de carne</button>
-      <button class="button button-default" onclick="calculateTotal('Bocol de guiso', 20)">Bocol de guiso</button>
+    <div id="rectangles">
+        <div class="rectangle-container">
+            <div class="rectangle" onclick="calculateTotal('T. de pibil / G. de carne', 19)">T. Pibil / G. Carne</div>
+            <div class="rectangle" onclick="calculateTotal('Gordita de guiso', 17)">Gordita de guiso</div>
+        </div>
+        <div class="rectangle-container">
+            <div class="rectangle" onclick="calculateTotal('Bocol de carne', 22)">Bocol de carne</div>
+            <div class="rectangle" onclick="calculateTotal('Bocol de guiso', 20)">Bocol de guiso</div>
+        </div>
+        <div class="rectangle-container">
+            <div class="rectangle" onclick="calculateTotal('Torta / enchiladas', 80)">Torta / enchiladas</div>
+            <div class="rectangle" onclick="calculateTotal('Pemoles / otros', 50)">Pemoles</div>
+        </div>
+        <div class="rectangle-container">
+            <div class="rectangle" onclick="calculateTotal('Refresco / avia', 35)">Refresco / avia</div>
+            <div class="rectangle" onclick="calculateTotal('Agua Natural / cafe', 25)">A. Natural / cafe</div>
+        </div>
     </div>
-    <div class="rectangle-container">
-      <button class="button button-default" onclick="calculateTotal('Torta / enchiladas', 80)">Torta</button>
-      <button class="button button-default" onclick="calculateTotal('Pemoles / otros', 50)">Pemoles</button>
+    <div id="output">
+        <h2>Cuenta</h2>
+        <ul id="outputList"></ul>
+        <p id="total">Total: $0.00</p>
     </div>
-    <div class="rectangle-container">
-      <button class="button button-default" onclick="calculateTotal('Refresco / avia', 35)">Refresco / avia</button>
-      <button class="button button-default" onclick="calculateTotal('Agua Natural / cafe', 25)">A. Natural / cafe</button>
-    </div>
-  </div>
-  <div id="output">
-    <h2>Cuenta</h2>
-    <ul id="outputList"></ul>
-    <p id="total">Total: $0.00</p>
-  </div>
-  <script>
-    let total = 0;
+    <script>
+        let total = 0;
 
-    function calculateTotal(itemName, multiplier) {
-      const inputNumber = document.getElementById('inputNumber');
-      let inputValue = parseFloat(inputNumber.value);
-      if (isNaN(inputValue) || inputValue <= 0) {
-        inputValue = 1;
-      }
-      const itemTotal = inputValue * multiplier;
-      total += itemTotal;
+        function calculateTotal(itemName, multiplier) {
+            const inputNumber = document.getElementById('inputNumber');
+            let inputValue = parseFloat(inputNumber.value);
+            if (isNaN(inputValue) || inputValue <= 0) {
+                inputValue = 1;
+            }
+            const itemTotal = inputValue * multiplier;
+            total += itemTotal;
 
-      const outputList = document.getElementById('outputList');
-      const listItem = document.createElement('li');
-      listItem.innerHTML = `${itemName} (${inputValue}): $${itemTotal.toFixed(2)} <span class="close-btn" onclick="removeItem(this)">x</span>`;
-      outputList.appendChild(listItem);
+            const outputList = document.getElementById('outputList');
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `${itemName} (${inputValue}): $${itemTotal.toFixed(2)} <span class="close-btn" onclick="removeItem(this)">x</span>`;
+            outputList.appendChild(listItem);
 
-      document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
-      inputNumber.value = '';
-    }
+            document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
+            inputNumber.value = '';
+        }
 
-    function checkInput() {
-      const inputNumber = document.getElementById('inputNumber');
-      if (inputNumber.value < 0) {
-        inputNumber.value = 0;
-      }
-    }
+        function checkInput() {
+            const inputNumber = document.getElementById('inputNumber');
+            if (inputNumber.value < 0) {
+                inputNumber.value = 0;
+            }
+        }
 
-    function removeItem(element) {
-      const listItem = element.parentNode;
-      const amountText = listItem.textContent.split('$')[1];
-      const itemAmount = parseFloat(amountText);
-      total -= itemAmount;
+        function removeItem(element) {
+            const listItem = element.parentNode;
+            const amountText = listItem.textContent.split('$')[1];
+            const itemAmount = parseFloat(amountText);
+            total -= itemAmount;
 
-      listItem.remove();
+            listItem.remove();
 
-      document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
-    }
+            document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
+        }
 
-    const buttons = document.querySelectorAll('.button');
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('clicked'));
-        button.classList.add('clicked');
-        setTimeout(() => {
-          button.classList.remove('clicked');
-        }, 200);
-      });
-    });
-  </script>
+        const rectangles = document.querySelectorAll('.rectangle');
+        rectangles.forEach(rectangle => {
+            rectangle.addEventListener('click', () => {
+                rectangles.forEach(r => r.classList.remove('clicked'));
+                rectangle.classList.add('clicked');
+                setTimeout(() => {
+                    rectangle.classList.remove('clicked');
+                }, 200);
+            });
+        });
+    </script>
 </body>
 
 </html>
