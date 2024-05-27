@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <style>
+
+        <style>
         #priceList {
             margin-top: 20px;
             text-align: center;
@@ -11,7 +12,7 @@
         #priceList table {
             margin: 0 auto;
             border-collapse: collapse;
-            width: 95%;
+            width: 80%;
         }
 
         #priceList th, #priceList td {
@@ -20,96 +21,129 @@
         }
 
         #priceList th {
-            background-color: #24a0ed;
+            background-color: #f2f2f2;
         }
 
-        #priceList h2 {
-            background-color: orange;
-            padding: 10px;
-            border-radius: 15px;
-            display: inline-block;
-        }
     </style>
+  
 
-    <!-- Page Information -->
-    <meta charset="utf-8">
-    <title>Mr. Taco Querétaro</title>
-    <meta name="description" content="https://littlelink.io">
-    <meta name="author" content="Seth Cottle">
+  <!-- Page Information
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Mr. Taco Querétaro</title>
+  <meta name="description" content="https://littlelink.io">
+  <meta name="author" content="Seth Cottle">
 
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/normalize.css">
 
-    <!-- Themes -->
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+
+    <!-- Themes:
+            Auto:   css/skeleton-auto.css
+            Light:  css/skeleton-light.css
+            Dark:   css/skeleton-dark.css
+     -->
     <link rel="stylesheet" href="css/skeleton-dark.css">
 
     <!-- Brand Styles -->
     <link rel="stylesheet" href="css/brands.css">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  
 </head>
 
 <body>
-    <!-- Primary Page Layout -->
-    <div class="container">
-        <div class="row">
-            <div class="column" style="margin-top: 10%">
-                <div id="priceList">
-                    <h2>Lista de Precios</h2>
-                    <table>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Precio (MXN)</th>
-                        </tr>
-                        <tr>
-                            <td>Taco de pibil</td>
-                            <td>$19.00</td>
-                        </tr>
-                        <tr>
-                            <td>Gordita de carne</td>
-                            <td>$19.00</td>
-                        </tr>
-                        <tr>
-                            <td>Gordita de guiso</td>
-                            <td>$17.00</td>
-                        </tr>
-                        <tr>
-                            <td>Bocol de carne</td>
-                            <td>$22.00</td>
-                        </tr>
-                        <tr>
-                            <td>Bocol de guiso</td>
-                            <td>$20.00</td>
-                        </tr>
-                        <tr>
-                            <td>Torta</td>
-                            <td>$80.00</td>
-                        </tr>
-                        <tr>
-                            <td>Pemoles</td>
-                            <td>$50.00</td>
-                        </tr>
-                        <tr>
-                            <td>Refresco / Avia</td>
-                            <td>$35.00</td>
-                        </tr>
-                        <tr>
-                            <td>Agua Natural / Cafe</td>
-                            <td>$25.00</td>
-                        </tr>
-                    </table>
-                </div>
 
-                <p style="margin-top: 20px;">© 2024 @mrtaco.qro | <a href="https://www.mrtacoqro.com">mrtacoqro.com</a></p>
-            </div>
-        </div>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="column" style="margin-top: 10%">
+
+        <!-- 
+
+          ## Getting Started with LittleLink
+
+          This page has been built with every pre-designed button available in LittleLink by default. You can rearrange and delete as needed.
+
+          You can add your own brand or others brands you may need in the `css/brands.css` file. 
+
+          You can add custom icons to `images/icons/...`. It is recommended to use a 24x24 .SVG.
+
+          Edit the "Your Image Here" section to add your own personal branding, like a picture of yourself or your brand logo!
+
+          Edit the "Title" section to change the page heading. You can use something like your name, your social handle, or your brand name.
+
+          Edit the "Short Bio" section tell users about yourself or your brand.
+
+        -->
+
+        <!-- Precios -->
+          <div id="priceList">
+        <h2>Lista de Precios</h2>
+        <table>
+            <tr>
+                <th>Producto</th>
+                <th>Precio (MXN)</th>
+            </tr>
+            <tr>
+                <td>Taco de pibil</td>
+                <td>$19.00</td>
+            </tr>
+            <tr>
+                <td>Gordita de carne</td>
+                <td>$19.00</td>
+            </tr>
+            <tr>
+                <td>Gordita de guiso</td>
+                <td>$17.00</td>
+            </tr>
+            <tr>
+                <td>Bocol de carne</td>
+                <td>$22.00</td>
+            </tr>
+            <tr>
+                <td>Bocol de guiso</td>
+                <td>$20.00</td>
+            </tr>
+            <tr>
+                <td>Torta</td>
+                <td>$80.00</td>
+            </tr>
+            <tr>
+                <td>Pemoles</td>
+                <td>$50.00</td>
+            </tr>
+            <tr>
+                <td>Refresco / Avia</td>
+                <td>$35.00</td>
+            </tr>
+            <tr>
+                <td>Agua Natural / Cafe</td>
+                <td>$25.00</td>
+            </tr>
+        </table>
     </div>
 
-    <!-- End Document -->
+
+        
+            <p style="margin-top: 20px;">© 2024 @mrtaco.qro | <a href="https://www.mrtacoqro.com">mrtacoqro.com</a></p
+
+      </div>
+    </div>
+  </div>
+
+  <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 
 </html>
