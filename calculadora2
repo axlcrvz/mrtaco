@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Calculadora Mr. Taco</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    
+    <style>
+        #total {
+            color: white;
+            background-color: green;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #calculator {
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        #logo {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 50px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        #inputNumber {
+            width: 300px;
+            height: 60px;
+            font-size: 16px;
+        }
+
+        #buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            height: 100%;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 18px;
+            width: 150px;
+            font-weight: 700;
+            line-height: 20px;
+            padding: 14px 12px 12px 12px;
+            letter-spacing: 0.1px;
+            white-space: nowrap;
+            outline: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+            border: 1px solid #ccc;
+            background-color: #f2f2f2;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover,
+        .button:focus {
+            color: #212121;
+            border-color: #888;
+            outline: #7AB8FF solid 3px;
+        }
+
+        .button-primary {
+            color: #fff;
+            background-color: #5A31F4;
+            filter: brightness(90%);
+        }
+
+        .button-primary:hover,
+        .button-primary:focus {
+            filter: brightness(85%);
+        }
+
+        .close-btn {
+            cursor: pointer;
+            font-weight: bold;
+            color: red;
+            margin-left: 5px;
+            display: inline-block;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+
+        #priceList {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #priceList table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        #priceList th, #priceList td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #priceList th {
+            background-color: #f2f2f2;
+        }
+
+    </style>
+</head>
+
+<body>
+    <img id="logo" src="images/logo.png" alt="Logo">
+    <div id="calculator">
+        <h2>Calculadora</h2>
+        <input type="tel" id="inputNumber" placeholder="Cantidad" pattern="[0-9]*" oninput="checkInput()">
+    </div>
+    <div id="buttons">
+        <div class="button-container">
+            <div class="button" onclick="calculateTotal('Taco de pibil', 19)">Taco de pibil</div>
+            <div class="button" onclick="calculateTotal('Gordita de carne', 19)">Gordita de carne</div>
+        </div>
+        <div class="button-container">
+            <div class="button" onclick="calculateTotal('Gordita de guiso', 17)">Gordita de guiso</div>
+            <div class="button" onclick="calculateTotal('Bocol de carne', 22)">Bocol de carne</div>
+        </div>
+        <div class="button-container">
+            <div class="button" onclick="calculateTotal('Bocol de guiso', 20)">Bocol de guiso</div>
+            <div class="button" onclick="calculateTotal('Torta', 80)">Torta</div>
+        </div>
+        <div class="button-container">
+            <div class="button" onclick="calculateTotal('Pemoles', 50)">Pemoles</div>
+            <div class="button" onclick="calculateTotal('Refresco / Avia', 35)">Refresco / Avia</div>
+        </div>
+        <div class="button-container">
+            <div class="button" onclick="calculateTotal('Agua Natural / Cafe', 25)">Agua Natural / Cafe</div>
+        </div>
+    </div>
+    <div id="output">
+        <h2>Cuenta</h2>
+        <ul id="outputList"></ul>
+        <p id="total">Total: $0.00</p>
+    </div>
+
+    <div id="priceList">
+        <h2>Lista de Precios</h2>
+        <table>
+            <tr>
+                <th>Producto</th>
+                <th>Precio (MXN)</th>
+            </tr>
+            <tr>
+                <td>Taco de pibil</td>
+                <td>$19.00</td>
+            </tr>
+            <tr>
+                <td>Gordita de carne</td>
+                <td>$19.00</td>
+            </tr>
+            <tr>
+                <td>Gordita de guiso</td>
+                <td>$17.00</td>
+            </tr>
+            <tr>
+                <td>Bocol de carne</td>
+                <td>$22.00</td>
+            </tr>
+            <tr>
+                <td>Bocol de guiso</td>
+                <td>$20.00</td>
+            </tr>
+            <tr>
+                <td>Torta</td>
+                <td>$80.00</td>
+            </tr>
+            <tr>
+                <td>Pemoles</td>
+                <td>$50.00</td>
+            </tr>
+            <tr>
+                <td>Refresco / Avia</td>
+                <td>$35.00</td>
+            </tr>
+            <tr>
+                <td>Agua Natural / Cafe</td>
+                <td>$25.00</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let total = 0;
+
+        function calculateTotal(itemName, price) {
+            const inputNumber = document.getElementById('inputNumber');
+            let inputValue = parseFloat(inputNumber.value);
+            if (isNaN(inputValue) || inputValue <= 0) {
+                inputValue = 1;
+            }
+            const itemTotal = inputValue * price;
+            total += itemTotal;
+
+            const outputList = document.getElementById('outputList');
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `${itemName} (${inputValue}): $${itemTotal.toFixed(2)} <span class="close-btn" onclick="removeItem(this, ${itemTotal})">x</span>`;
+            outputList.appendChild(listItem);
+
+            document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
+            inputNumber.value = '';
+        }
+
+        function checkInput() {
+            const inputNumber = document.getElementById('inputNumber');
+            if (inputNumber.value < 0) {
+                inputNumber.value = 0;
+            }
+        }
+
+        function removeItem(element, itemTotal) {
+            total -= itemTotal;
+            element.parentNode.remove();
+            document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        const buttons = document.querySelectorAll('.button');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('clicked'));
+                button.classList.add('clicked');
+                setTimeout(() => {
+                    button.classList.remove('clicked');
+                }, 200);
+            });
+        });
+    </script>
+</body>
+
+</html>
