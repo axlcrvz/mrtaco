@@ -115,16 +115,24 @@
     </div>
     <div id="rectangles">
         <div class="rectangle-container">
-            <div class="rectangle" onclick="calculateTotal('T. de pibil / G. de carne', 19)">T. Pibil / G. Carne</div>
+            <div class="rectangle" onclick="calculateTotal('Taco de pibil', 19)">Taco de pibil</div>
+            <div class="rectangle" onclick="calculateTotal('Envio', 50, 5)">Envio</div>
+        </div>
+        <div class="rectangle-container">
+            <div class="rectangle" onclick="calculateTotal('Gordita de carne', 19)">Gordita de carne</div>
             <div class="rectangle" onclick="calculateTotal('Gordita de guiso', 17)">Gordita de guiso</div>
         </div>
         <div class="rectangle-container">
             <div class="rectangle" onclick="calculateTotal('Bocol de carne', 22)">Bocol de carne</div>
             <div class="rectangle" onclick="calculateTotal('Bocol de guiso', 20)">Bocol de guiso</div>
         </div>
+         <div class="rectangle-container">
+            <div class="rectangle" onclick="calculateTotal('Torta Jumbo', 90)">Torta Jumbo</div>
+            <div class="rectangle" onclick="calculateTotal('Torta Tradicional', 70)">Torta Tradicional</div>
+        </div>
         <div class="rectangle-container">
-            <div class="rectangle" onclick="calculateTotal('Torta', 80)">Torta</div>
             <div class="rectangle" onclick="calculateTotal('Pemoles', 50)">Pemoles</div>
+            <div class="rectangle" onclick="calculateTotal('Tampiconada', 35)">Tampiconada</div>
         </div>
         <div class="rectangle-container">
             <div class="rectangle" onclick="calculateTotal('Refresco / avia', 35)">Refresco / avia</div>
@@ -164,13 +172,21 @@
                 <td>Bocol de guiso</td>
                 <td>$20.00</td>
             </tr>
+             <tr>
+                <td>Torta Jumbo</td>
+                <td>$90.00</td>
+            </tr>
             <tr>
-                <td>Torta</td>
-                <td>$80.00</td>
+                <td>Torta Tradicional</td>
+                <td>$70.00</td>
             </tr>
             <tr>
                 <td>Pemoles</td>
                 <td>$50.00</td>
+            </tr>
+             <tr>
+                <td>Tampiconada</td>
+                <td>$30.00</td>
             </tr>
             <tr>
                 <td>Refresco / Avia</td>
@@ -180,19 +196,28 @@
                 <td>Agua Natural / Cafe</td>
                 <td>$25.00</td>
             </tr>
+            <tr>
+                <td>Envio</td>
+                <td>$50.00 primer kilometro, $5.00 por km adicional</td>
+            </tr>
         </table>
     </div>
 
     <script>
         let total = 0;
 
-        function calculateTotal(itemName, multiplier) {
+        function calculateTotal(itemName, multiplier, extra = 0) {
             const inputNumber = document.getElementById('inputNumber');
             let inputValue = parseFloat(inputNumber.value);
             if (isNaN(inputValue) || inputValue <= 0) {
                 inputValue = 1;
             }
-            const itemTotal = inputValue * multiplier;
+            let itemTotal;
+            if (itemName === 'Envio') {
+                itemTotal = multiplier + (inputValue - 1) * extra;
+            } else {
+                itemTotal = inputValue * multiplier;
+            }
             total += itemTotal;
 
             const outputList = document.getElementById('outputList');
