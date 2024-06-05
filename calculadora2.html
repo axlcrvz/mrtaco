@@ -43,55 +43,33 @@
             font-size: 16px;
         }
 
-        #buttons {
+        #rectangles {
             text-align: center;
             margin-top: 20px;
         }
 
-        .button-container {
+        .rectangle-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
 
-        .button {
-            display: inline-block;
-            text-decoration: none;
-            height: 100%;
-            text-align: center;
-            vertical-align: middle;
-            font-size: 18px;
+        .rectangle {
             width: 150px;
-            font-weight: 700;
-            line-height: 20px;
-            padding: 14px 12px 12px 12px;
-            letter-spacing: 0.1px;
-            white-space: nowrap;
-            outline: none;
-            border-radius: 8px;
-            cursor: pointer;
+            height: 50px;
             margin: 5px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
             border: 1px solid #ccc;
-            background-color: #f2f2f2;
+            overflow: hidden;
+            white-space: nowrap;
             transition: background-color 0.3s ease;
         }
 
-        .button:hover,
-        .button:focus {
-            color: #212121;
-            border-color: #888;
-            outline: #7AB8FF solid 3px;
-        }
-
-        .button-primary {
-            color: #fff;
-            background-color: #5A31F4;
-            filter: brightness(90%);
-        }
-
-        .button-primary:hover,
-        .button-primary:focus {
-            filter: brightness(85%);
+        .rectangle.clicked {
+            background-color: lightgreen;
+            transition: background-color 0.01s ease-out;
         }
 
         .close-btn {
@@ -114,7 +92,7 @@
         #priceList table {
             margin: 0 auto;
             border-collapse: collapse;
-            width: 80%;
+            width: 100%;
         }
 
         #priceList th, #priceList td {
@@ -135,25 +113,30 @@
         <h2>Calculadora</h2>
         <input type="tel" id="inputNumber" placeholder="Cantidad" pattern="[0-9]*" oninput="checkInput()">
     </div>
-    <div id="buttons">
-        <div class="button-container">
-            <div class="button" onclick="calculateTotal('Taco de pibil', 19)">Taco de pibil</div>
-            <div class="button" onclick="calculateTotal('Gordita de carne', 19)">Gordita de carne</div>
+    <div id="rectangles">
+        <div class="rectangle-container">
+            <div class="rectangle" onclick="calculateTotal('Taco de pibil', 19)">Taco de pibil</div>
+            <div class="rectangle" onclick="calculateTotal('Envio por Km', 50, 5)">Envio por Km</div>
         </div>
-        <div class="button-container">
-            <div class="button" onclick="calculateTotal('Gordita de guiso', 17)">Gordita de guiso</div>
-            <div class="button" onclick="calculateTotal('Bocol de carne', 22)">Bocol de carne</div>
+        <div class="rectangle-container">
+            <div class="rectangle" onclick="calculateTotal('Gordita de carne', 19)">Gordita de carne</div>
+            <div class="rectangle" onclick="calculateTotal('Gordita de guiso', 17)">Gordita de guiso</div>
         </div>
-        <div class="button-container">
-            <div class="button" onclick="calculateTotal('Bocol de guiso', 20)">Bocol de guiso</div>
-            <div class="button" onclick="calculateTotal('Torta', 80)">Torta</div>
+        <div class="rectangle-container">
+            <div class="rectangle" onclick="calculateTotal('Bocol de carne', 22)">Bocol de carne</div>
+            <div class="rectangle" onclick="calculateTotal('Bocol de guiso', 20)">Bocol de guiso</div>
         </div>
-        <div class="button-container">
-            <div class="button" onclick="calculateTotal('Pemoles', 50)">Pemoles</div>
-            <div class="button" onclick="calculateTotal('Refresco / Avia', 35)">Refresco / Avia</div>
+         <div class="rectangle-container">
+            <div class="rectangle" onclick="calculateTotal('Torta Jumbo', 95)">Torta Jumbo</div>
+            <div class="rectangle" onclick="calculateTotal('Torta Tradicional', 70)">Torta Tradicional</div>
         </div>
-        <div class="button-container">
-            <div class="button" onclick="calculateTotal('Agua Natural / Cafe', 25)">Agua Natural / Cafe</div>
+        <div class="rectangle-container">
+            <div class="rectangle" onclick="calculateTotal('Pemoles', 50)">Pemoles</div>
+            <div class="rectangle" onclick="calculateTotal('Tampiconada', 30)">Tampiconada</div>
+        </div>
+        <div class="rectangle-container">
+            <div class="rectangle" onclick="calculateTotal('Refresco / avia', 35)">Refresco / avia</div>
+            <div class="rectangle" onclick="calculateTotal('Agua Natural / cafe', 25)">A. Natural / cafe</div>
         </div>
     </div>
     <div id="output">
@@ -189,13 +172,21 @@
                 <td>Bocol de guiso</td>
                 <td>$20.00</td>
             </tr>
+             <tr>
+                <td>Torta Jumbo</td>
+                <td>$95.00</td>
+            </tr>
             <tr>
-                <td>Torta</td>
-                <td>$80.00</td>
+                <td>Torta Tradicional</td>
+                <td>$70.00</td>
             </tr>
             <tr>
                 <td>Pemoles</td>
                 <td>$50.00</td>
+            </tr>
+             <tr>
+                <td>Tampiconada</td>
+                <td>$30.00</td>
             </tr>
             <tr>
                 <td>Refresco / Avia</td>
@@ -205,24 +196,33 @@
                 <td>Agua Natural / Cafe</td>
                 <td>$25.00</td>
             </tr>
+            <tr>
+                <td>Envio</td>
+                <td>$50.00 primer kilometro, $5.00 por km adicional</td>
+            </tr>
         </table>
     </div>
 
     <script>
         let total = 0;
 
-        function calculateTotal(itemName, price) {
+        function calculateTotal(itemName, multiplier, extra = 0) {
             const inputNumber = document.getElementById('inputNumber');
             let inputValue = parseFloat(inputNumber.value);
             if (isNaN(inputValue) || inputValue <= 0) {
                 inputValue = 1;
             }
-            const itemTotal = inputValue * price;
+            let itemTotal;
+            if (itemName === 'Envio por Km') {
+                itemTotal = multiplier + (inputValue - 1) * extra;
+            } else {
+                itemTotal = inputValue * multiplier;
+            }
             total += itemTotal;
 
             const outputList = document.getElementById('outputList');
             const listItem = document.createElement('li');
-            listItem.innerHTML = `${itemName} (${inputValue}): $${itemTotal.toFixed(2)} <span class="close-btn" onclick="removeItem(this, ${itemTotal})">x</span>`;
+            listItem.innerHTML = `${itemName} (${inputValue}): $${itemTotal.toFixed(2)} <span class="close-btn" onclick="removeItem(this)">x</span>`;
             outputList.appendChild(listItem);
 
             document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
@@ -236,19 +236,24 @@
             }
         }
 
-        function removeItem(element, itemTotal) {
-            total -= itemTotal;
-            element.parentNode.remove();
+        function removeItem(element) {
+            const listItem = element.parentNode;
+            const amountText = listItem.textContent.split('$')[1];
+            const itemAmount = parseFloat(amountText);
+            total -= itemAmount;
+
+            listItem.remove();
+
             document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
         }
 
-        const buttons = document.querySelectorAll('.button');
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                buttons.forEach(b => b.classList.remove('clicked'));
-                button.classList.add('clicked');
+        const rectangles = document.querySelectorAll('.rectangle');
+        rectangles.forEach(rectangle => {
+            rectangle.addEventListener('click', () => {
+                rectangles.forEach(r => r.classList.remove('clicked'));
+                rectangle.classList.add('clicked');
                 setTimeout(() => {
-                    button.classList.remove('clicked');
+                    rectangle.classList.remove('clicked');
                 }, 200);
             });
         });
