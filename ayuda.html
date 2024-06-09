@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayuda para el Cajero de Mr. Taco</title>
+    <title>Guía de Ayuda para el Cajero de Mr. Taco</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,153 +17,167 @@
         }
 
         ul {
-            list-style-type: disc;
-            margin-left: 20px;
+            list-style-type: none;
+            padding: 0;
         }
 
-        code {
-            background-color: #f4f4f4;
-            padding: 2px 4px;
-            border-radius: 4px;
+        li {
+            margin-bottom: 10px;
         }
 
         .section {
             margin-bottom: 20px;
         }
 
-        .shortcut {
+        .highlight {
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        .highlight-strong {
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        .shortcuts {
             background-color: #f4f4f4;
             padding: 10px;
             border-radius: 4px;
-            margin: 10px 0;
+        }
+
+        .shortcut {
+            display: inline-block;
+            background-color: #f1c40f;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 4px;
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
-    <h1>Página de Ayuda para el Cajero de Mr. Taco</h1>
-    <p>Esta guía proporciona instrucciones y mejores prácticas para el uso eficiente de nuestras plataformas y servicios. Por favor, siga estas directrices para asegurar un servicio fluido y efectivo.</p>
+    <h1 class="highlight-strong">Guía de Ayuda para el Cajero de Mr. Taco</h1>
 
     <div class="section">
-        <h2>Calculadora de Mr. Taco</h2>
+        <h2 class="highlight-strong">Calculadora de Mr. Taco</h2>
         <ul>
-            <li><strong>Uso</strong>: Para calcular costos y precios de los productos.</li>
-            <li><strong>Mejores Prácticas</strong>:
+            <li><span class="highlight">Uso:</span> Calcular costos y precios de productos.</li>
+            <li><span class="highlight">Prácticas:</span>
                 <ul>
-                    <li>Asegúrate de ingresar correctamente todos los ingredientes y cantidades.</li>
-                    <li>Verifica los cálculos antes de finalizar cualquier pedido.</li>
+                    <li>Ingresar correctamente ingredientes y cantidades.</li>
+                    <li>Verificar cálculos antes de finalizar pedidos.</li>
                 </ul>
             </li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>Libro Diario (Google Sheets)</h2>
+        <h2 class="highlight-strong">Libro Diario (Google Sheets)</h2>
         <ul>
-            <li><strong>Uso</strong>: Para registrar todas las transacciones diarias, incluyendo ventas y gastos.</li>
-            <li><strong>Mejores Prácticas</strong>:
+            <li><span class="highlight">Uso:</span> Registrar transacciones diarias.</li>
+            <li><span class="highlight">Prácticas:</span>
                 <ul>
-                    <li>Registra todas las entradas y salidas de dinero inmediatamente.</li>
-                    <li>Verifica que todos los datos sean precisos antes de guardar.</li>
-                    <li>Revisa y concilia las entradas al final de cada día.</li>
+                    <li>Registrar entradas y salidas de dinero inmediatamente.</li>
+                    <li>Verificar datos antes de guardar.</li>
+                    <li>Revisar y conciliar al final del día.</li>
                 </ul>
             </li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>Pedidos a Domicilio</h2>
-        <h3>Pasos para Realizar un Pedido a Domicilio</h3>
+        <h2 class="highlight-strong">Pedidos a Domicilio</h2>
+        <h3 class="highlight">Pasos:</h3>
         <ul>
-            <li>Escribir la comanda.</li>
-            <li>Medir distancia en km en Google Maps.</li>
-            <li>Hacer la cuenta incluyendo envío.</li>
-            <li>Tomar captura de pantalla de la cuenta (<code>Ctrl + Shift + S</code>).</li>
-            <li>Mandar captura al cliente.</li>
-            <li>Pasar la comanda.</li>
-            <li>Si es transferencia, mandar por Uber Packages.</li>
-            <li>Si es efectivo, mandar por grupo "Leyendas".</li>
+            <li>Escribir comanda.</li>
+            <li>Medir distancia en Google Maps.</li>
+            <li>Calcular total incluyendo envío.</li>
+            <li>Tomar captura de pantalla (<code class="shortcut">Ctrl + Shift + S</code>).</li>
+            <li>Enviar captura al cliente.</li>
+            <li>Procesar comanda.</li>
+            <li>Transferencia: usar Uber Packages.</li>
+            <li>Efectivo: usar grupo "Leyendas".</li>
         </ul>
 
-        <h3>Instrucciones para "Leyendas 3 Juriquilla"</h3>
+        <h3 class="highlight">Leyendas 3 Juriquilla</h3>
+        <h4>Formato:</h4>
         <ul>
-            <li>Usar el siguiente formato:
-                <pre>
-Mr. Taco tiene pedido para: [Nombre del Cliente]
-Recoger en: [Dirección del negocio]
-Pagar en sucursal: [Monto del Pedido]
-Cliente paga: [Monto del Pedido + Envío]
-Ganancia: [del repartidor]
-Listo en: [Tiempo estimado de preparación]
-                </pre>
-            </li>
-            <li>El repartidor "compra" el pedido y se lo "vende" al cliente.</li>
-            <li>Completa el formato con todos los detalles necesarios antes de enviarlo.</li>
-            <li>Coordina con el repartidor para asegurar que el pedido se entregue correctamente.</li>
-            <li>Verifica que el cliente reciba y pague el pedido correctamente.</li>
+            <li>Pedido para: [Nombre del Cliente]</li>
+            <li>Recoger en: [Dirección del negocio]</li>
+            <li>Pagar: [Monto del Pedido]</li>
+            <li>Cliente paga: [Monto del Pedido + Envío]</li>
+            <li>Ganancia: [del repartidor]</li>
+            <li>Listo en: [Tiempo de preparación]</li>
         </ul>
-
-        <h3>Instrucciones para Uber Packages</h3>
+        <h4>Instrucciones:</h4>
         <ul>
-            <li>Verifica que el cliente haya realizado la transferencia del pago antes de proceder.</li>
-            <li>Asegúrate de que el costo del envío sea cargado correctamente a la tarjeta de crédito.</li>
+            <li>Completar el formato antes de enviarlo.</li>
+            <li>Coordinar con el repartidor.</li>
+            <li>Verificar entrega y pago.</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>WhatsApp</h2>
+        <h2 class="highlight-strong">Uber Packages</h2>
         <ul>
-            <li><strong>Uso</strong>: Para tomar pedidos y comunicarse en el grupo "Leyendas 3 Juriquilla" para envíos.</li>
-            <li><strong>Mejores Prácticas</strong>:
+            <li>Verificar transferencia del cliente antes de proceder.</li>
+            <li>Asegurar costo de envío en la tarjeta de crédito.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="highlight-strong">WhatsApp</h2>
+        <ul>
+            <li><span class="highlight">Uso:</span> Tomar pedidos y comunicarse para envíos.</li>
+            <li><span class="highlight">Prácticas:</span>
                 <ul>
-                    <li>Responde a los mensajes de los clientes rápidamente y con cortesía.</li>
-                    <li>Usa palabras clave poderosas (power words) como "rápido", "fresco", "delicioso".</li>
-                    <li>Confirma cada pedido con el cliente antes de procesarlo.</li>
-                    <li>Dale "corazón" a todos los comprobantes de transferencia que te manden.</li>
-                    <li>Cuando cierres corte, toma captura de pantalla y mándala por WhatsApp al patrón.</li>
+                    <li>Responder rápidamente y con cortesía.</li>
+                    <li>Usar palabras clave poderosas.</li>
+                    <li>Confirmar cada pedido.</li>
+                    <li>Dar "corazón" a comprobantes de transferencia.</li>
+                    <li>Enviar captura del cierre de caja al patrón.</li>
                 </ul>
             </li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>Google Maps</h2>
+        <h2 class="highlight-strong">Google Maps</h2>
         <ul>
-            <li><strong>Uso</strong>: Para calcular los kilómetros de envío.</li>
-            <li><strong>Mejores Prácticas</strong>:
+            <li><span class="highlight">Uso:</span> Calcular kilómetros de envío.</li>
+            <li><span class="highlight">Prácticas:</span>
                 <ul>
-                    <li>Introduce la dirección del cliente y la dirección del local correctamente.</li>
-                    <li>Usa la herramienta de cálculo de distancias para obtener la distancia precisa.</li>
+                    <li>Introducir direcciones correctamente.</li>
+                    <li>Usar herramienta de cálculo de distancias.</li>
                 </ul>
             </li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>Lista de Tareas al Abrir la Caja</h2>
+        <h2 class="highlight-strong">Lista de Tareas</h2>
+        <h3 class="highlight">Al Abrir la Caja:</h3>
         <ul>
-            <li>Verifica que haya suficiente cambio.</li>
-            <li>Asegúrate de que todos los equipos estén funcionando correctamente.</li>
-            <li>Revisa que todos los suministros necesarios estén disponibles.</li>
+            <li>Verificar cambio suficiente.</li>
+            <li>Asegurar funcionamiento de equipos.</li>
+            <li>Revisar suministros.</li>
+        </ul>
+        <h3 class="highlight">Al Cerrar la Caja:</h3>
+        <ul>
+            <li>Cuadrar caja registradora.</li>
+            <li>Tomar captura del cierre y enviarla al patrón.</li>
+            <li>Registrar transacciones en el libro diario.</li>
+            <li>Apagar equipos y asegurar el local.</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>Lista de Tareas al Cerrar la Caja</h2>
-        <ul>
-            <li>Cuadra la caja registradora y verifica las ventas del día.</li>
-            <li>Toma una captura de pantalla del cierre de caja y envíala por WhatsApp al patrón.</li>
-            <li>Asegúrate de que todas las transacciones estén registradas correctamente en el libro diario.</li>
-            <li>Apaga todos los equipos y asegúrate de que el local esté seguro.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Lista de Shortcuts</h2>
-        <div class="shortcut">
-            <p><code>Ctrl + Shift + S</code>: Tomar una captura de pantalla.</p>
-            <p><code>Ctrl + C</code>: Copiar.</p>
-            <p><code>Ctrl + V</code>: Pegar.</p>
+        <h2 class="highlight-strong">Shortcuts</h2>
+        <div class="shortcuts">
+            <div class="shortcut">Ctrl + Shift + S: Captura de pantalla</div>
+            <div class="shortcut">Ctrl + C: Copiar</div>
+            <div class="shortcut">Ctrl + V: Pegar</div>
         </div>
     </div>
 
