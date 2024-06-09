@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Ayuda para el Cajero de Mr. Taco</title>
     <style>
         body {
@@ -12,17 +12,8 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
-            color: #d35400;
-        }
-
-        h1 {
-            border-bottom: 2px solid #d35400;
-            padding-bottom: 10px;
-        }
-
-        section {
-            margin-bottom: 20px;
+        h1, h2, h3, h4 {
+            color: #333;
         }
 
         ul {
@@ -30,164 +21,161 @@
             margin-left: 20px;
         }
 
-        .highlight {
-            color: #e74c3c;
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .shortcut {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
         }
     </style>
 </head>
 
 <body>
     <h1>Página de Ayuda para el Cajero de Mr. Taco</h1>
+    <p>Esta guía proporciona instrucciones y mejores prácticas para el uso eficiente de nuestras plataformas y servicios. Por favor, siga estas directrices para asegurar un servicio fluido y efectivo.</p>
 
-    <p>Esta guía proporciona instrucciones, mejores prácticas y métricas a medir para el uso eficiente de nuestras plataformas y servicios. Por favor, siga estas directrices para asegurar un servicio fluido y efectivo.</p>
-
-    <section>
+    <div class="section">
         <h2>Calculadora de Mr. Taco</h2>
         <ul>
-            <li><strong>Uso:</strong> Para calcular costos y precios de los productos.</li>
-            <li><strong>Mejores Prácticas:</strong>
+            <li><strong>Uso</strong>: Para calcular costos y precios de los productos.</li>
+            <li><strong>Mejores Prácticas</strong>:
                 <ul>
                     <li>Asegúrate de ingresar correctamente todos los ingredientes y cantidades.</li>
                     <li>Verifica los cálculos antes de finalizar cualquier pedido.</li>
                 </ul>
             </li>
-            <li><strong>Métricas a Medir:</strong>
-                <ul>
-                    <li>Precisión en los cálculos.</li>
-                    <li>Tiempo promedio para realizar un cálculo completo.</li>
-                </ul>
-            </li>
         </ul>
-    </section>
+    </div>
 
-    <section>
+    <div class="section">
         <h2>Libro Diario (Google Sheets)</h2>
         <ul>
-            <li><strong>Uso:</strong> Para registrar todas las transacciones diarias, incluyendo ventas y gastos.</li>
-            <li><strong>Mejores Prácticas:</strong>
+            <li><strong>Uso</strong>: Para registrar todas las transacciones diarias, incluyendo ventas y gastos.</li>
+            <li><strong>Mejores Prácticas</strong>:
                 <ul>
                     <li>Registra todas las entradas y salidas de dinero inmediatamente.</li>
                     <li>Verifica que todos los datos sean precisos antes de guardar.</li>
                     <li>Revisa y concilia las entradas al final de cada día.</li>
                 </ul>
             </li>
-            <li><strong>Métricas a Medir:</strong>
-                <ul>
-                    <li>Consistencia y precisión de las entradas.</li>
-                    <li>Tiempo promedio de registro de cada transacción.</li>
-                </ul>
-            </li>
         </ul>
-    </section>
+    </div>
 
-    <section>
+    <div class="section">
         <h2>WhatsApp</h2>
         <ul>
-            <li><strong>Uso:</strong> Para tomar pedidos y comunicarse en el grupo "<span class="highlight">Leyendas 3 Juriquilla</span>" para envíos.</li>
-            <li><strong>Mejores Prácticas:</strong>
+            <li><strong>Uso</strong>: Para tomar pedidos y comunicarse en el grupo "Leyendas 3 Juriquilla" para envíos.</li>
+            <li><strong>Mejores Prácticas</strong>:
                 <ul>
                     <li>Responde a los mensajes de los clientes rápidamente y con cortesía.</li>
-                    <li>Usa palabras clave poderosas como "rápido", "fresco", "delicioso".</li>
+                    <li>Usa palabras clave poderosas (power words) como "rápido", "fresco", "delicioso".</li>
                     <li>Confirma cada pedido con el cliente antes de procesarlo.</li>
-                </ul>
-            </li>
-            <li><strong>Métricas a Medir:</strong>
-                <ul>
-                    <li>Tiempo de respuesta a los mensajes de los clientes.</li>
-                    <li>Número de pedidos procesados correctamente.</li>
-                    <li>Satisfacción del cliente (medida a través de feedback).</li>
+                    <li>Dale "corazón" a todos los comprobantes de transferencia que te manden.</li>
+                    <li>Cuando cierres corte, toma captura de pantalla y mándala por WhatsApp al patrón.</li>
                 </ul>
             </li>
         </ul>
-    </section>
+    </div>
 
-    <section>
-        <h3>Pedidos en el Grupo "<span class="highlight">Leyendas 3 Juriquilla</span>"</h3>
-        <p><strong>Formato de Envíos:</strong></p>
-        <pre>
-Mr. Taco tiene pedido para:
-Recoger en:
-Pagar en sucursal:
-Cliente paga:
-Ganancia:
-        </pre>
+    <div class="section">
+        <h2>Pedidos en el Grupo "Leyendas 3 Juriquilla"</h2>
         <ul>
-            <li><strong>Mejores Prácticas:</strong>
+            <li><strong>Formato de Envíos</strong>:
+                <pre>
+Mr. Taco tiene pedido para: [Nombre del Cliente]
+Recoger en: [Dirección del Cliente]
+Pagar en sucursal: [Monto del Pedido]
+Cliente paga: [Monto del Pedido + Envío]
+Ganancia: [Monto del Pedido - Costo de Producción]
+Listo en: [Tiempo estimado de preparación]
+                </pre>
+            </li>
+            <li><strong>Mejores Prácticas</strong>:
                 <ul>
                     <li>Asegúrate de completar correctamente todos los campos del formato.</li>
                     <li>Verifica los detalles del pedido antes de enviarlo.</li>
                     <li>Coordina con el repartidor y confirma la entrega con el cliente.</li>
                 </ul>
             </li>
-            <li><strong>Métricas a Medir:</strong>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Pedidos para Llevar</h2>
+        <ul>
+            <li><strong>Mejores Prácticas</strong>:
                 <ul>
-                    <li>Número de pedidos completados sin errores.</li>
-                    <li>Tiempo promedio de respuesta en el grupo.</li>
-                    <li>Satisfacción del cliente (medida a través de feedback).</li>
+                    <li>Siempre mandar captura de pantalla de la cuenta por WhatsApp al cliente.</li>
+                    <li>Si el pago es por transferencia, el pedido se envía por Uber Packages.</li>
+                    <li>Si el pago es en efectivo, el pedido se envía por el grupo "Leyendas".</li>
                 </ul>
             </li>
         </ul>
-    </section>
+    </div>
 
-    <section>
+    <div class="section">
         <h2>Google Maps</h2>
         <ul>
-            <li><strong>Uso:</strong> Para calcular los kilómetros de envío.</li>
-            <li><strong>Mejores Prácticas:</strong>
+            <li><strong>Uso</strong>: Para calcular los kilómetros de envío.</li>
+            <li><strong>Mejores Prácticas</strong>:
                 <ul>
                     <li>Introduce la dirección del cliente y la dirección del local correctamente.</li>
                     <li>Usa la herramienta de cálculo de distancias para obtener la distancia precisa.</li>
                 </ul>
             </li>
-            <li><strong>Métricas a Medir:</strong>
-                <ul>
-                    <li>Precisión en el cálculo de distancias.</li>
-                    <li>Tiempo promedio para calcular la distancia.</li>
-                </ul>
-            </li>
         </ul>
-    </section>
+    </div>
 
-    <section>
+    <div class="section">
         <h2>Uber Packages</h2>
         <ul>
-            <li><strong>Uso:</strong> Para enviar pedidos con la tarjeta de crédito incluida.</li>
-            <li><strong>Mejores Prácticas:</strong>
+            <li><strong>Uso</strong>: Para enviar pedidos con la tarjeta de crédito incluida.</li>
+            <li><strong>Mejores Prácticas</strong>:
                 <ul>
                     <li>Verifica que el cliente haya realizado la transferencia del pago antes de proceder.</li>
                     <li>Asegúrate de que el costo del envío sea cargado correctamente a la tarjeta de crédito.</li>
                 </ul>
             </li>
-            <li><strong>Métricas a Medir:</strong>
-                <ul>
-                    <li>Precisión en la verificación de pagos.</li>
-                    <li>Tiempo promedio para procesar un envío.</li>
-                </ul>
-            </li>
         </ul>
-    </section>
+    </div>
 
-    <section>
-        <h3>Ejemplo de Formato de Envíos por el Grupo "<span class="highlight">Leyendas 3 Juriquilla</span>"</h3>
-        <pre>
-Mr. Taco tiene pedido para: [Nombre del Cliente]
-Recoger en: [Dirección del Cliente]
-Pagar en sucursal: [Monto del Pedido]
-Cliente paga: [Monto del Pedido + Envío]
-Ganancia: [Monto del Pedido - Costo de Producción]
-        </pre>
+    <div class="section">
+        <h2>Lista de Tareas al Abrir la Caja</h2>
         <ul>
-            <li><strong>Mejores Prácticas:</strong>
-                <ul>
-                    <li>Completa el formato con todos los detalles necesarios antes de enviarlo.</li>
-                    <li>Coordina con el repartidor para asegurar que el pedido se entregue correctamente.</li>
-                    <li>Verifica que el cliente reciba y pague el pedido correctamente.</li>
-                </ul>
-            </li>
+            <li>Verifica que haya suficiente cambio.</li>
+            <li>Asegúrate de que todos los equipos estén funcionando correctamente.</li>
+            <li>Revisa que todos los suministros necesarios estén disponibles.</li>
         </ul>
-    </section>
+    </div>
 
-    <p>Esta guía está diseñada para ayudarte a realizar tus tareas de manera eficiente y efectiva. Si tienes alguna pregunta o necesitas más información, no dudes en contactar a tu supervisor.</p>
+    <div class="section">
+        <h2>Lista de Tareas al Cerrar la Caja</h2>
+        <ul>
+            <li>Cuadra la caja registradora y verifica las ventas del día.</li>
+            <li>Toma una captura de pantalla del cierre de caja y envíala por WhatsApp al patrón.</li>
+            <li>Asegúrate de que todas las transacciones estén registradas correctamente en el libro diario.</li>
+            <li>Apaga todos los equipos y asegúrate de que el local esté seguro.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Lista de Shortcuts</h2>
+        <div class="shortcut">
+            <p><code>Ctrl + Shift + S</code>: Tomar una captura de pantalla.</p>
+            <p><code>Ctrl + C</code>: Copiar.</p>
+            <p><code>Ctrl + V</code>: Pegar.</p>
+        </div>
+    </div>
 
 </body>
 
