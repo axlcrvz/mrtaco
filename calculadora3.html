@@ -10,6 +10,13 @@
     <link rel="icon" type="image/png" href="images/logo.png">
     
     <style>
+    table {
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+      padding: 5px;
+    }
         #total {
             color: white;
             background-color: green;
@@ -123,6 +130,30 @@
         <h2>Calculadora</h2>
         <input type="tel" id="inputNumber" placeholder="Cantidad" pattern="[0-9]*" oninput="checkInput()">
     </div>
+    <table>
+  <tr>
+    <th>Column 1</th>
+    <th>maiz</th>
+    <th>harina 3</th>
+    <th>gordita 4</th>
+    <th>bocol 5</th>
+  </tr>
+  <tr>
+    <td><a href="#">carne deshebrada</a></td>
+    <td><a href="#">maiz</a></td>
+    <td><a href="#">harina</a></td>
+    <td><a href="#">gordita</a></td>
+    <td><a href="#">bocol</a></td>
+  </tr>
+  <tr>
+    <td><a href="#">Cell 2-1</a></td>
+    <td><a href="#">Cell 2-2</a></td>
+    <td><a href="#">Cell 2-3</a></td>
+    <td><a href="#">Cell 2-4</a></td>
+    <td><a href="#">Cell 2-5</a></td>
+  </tr>
+  <!-- Add more rows as needed -->
+</table>
     <div id="rectangles">
         <div class="rectangle-container">
             <div class="body" >Carne deshebrada</div>
