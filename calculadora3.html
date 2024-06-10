@@ -1,314 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Calculadora Mr. Taco</title>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/logo.png">
-    
+    <title>Point of Sale</title>
     <style>
-    table {
-            text-align: center;
-            
-            border: 1px solid #ccc;
-        
-            transition: background-color 0.3s ease;
-        justify-content: center;
-        margin-top: 20px;
-      border-collapse: collapse;
-    }
-    table, th, td {
-      border: 1px solid black;
-      padding: 5px;
-    }
-        #total {
-            color: white;
-            background-color: green;
-            padding: 10px;
-            display: inline-block;
-        }
-
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
         }
-
-        #calculator {
-            width: 100%;
-            text-align: center;
-            position: relative;
-        }
-
-        #logo {
-            position: absolute;
-            left: 10px;
-            top: 10px;
-            width: 50px;
-            border-radius: 10px;
-            margin-right: 20px;
-        }
-
-        #inputNumber {
-            width: 300px;
-            height: 60px;
-            font-size: 16px;
-        }
-
-        #rectangles {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .rectangle-container {
+        .container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
         }
-
-        .rectangle {
-            width: 50px;
-            height: 50px;
-            margin: 5px;
-            text-align: center;
-            line-height: 50px;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            overflow: hidden;
-            white-space: nowrap;
-            transition: background-color 0.3s ease;
-        }
-
-        .rectangle.clicked {
-            background-color: lightgreen;
-            transition: background-color 0.01s ease-out;
-        }
-
-        .close-btn {
-            cursor: pointer;
-            font-weight: bold;
-            color: red;
-            margin-left: 5px;
-            display: inline-block;
-        }
-
-        #output {
-            margin-top: 20px;
-        }
-                #outputList li {
-            background-color: #ffebcc; /* Very light orange */
-            color: black;
+        .products, .cart {
+            border: 1px solid #ddd;
             padding: 10px;
-            margin: 5px 0;
-            list-style-type: none;
+            margin: 10px;
+        }
+        .product, .cart-item {
             display: flex;
             justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .cart-item {
             align-items: center;
         }
-
-        #priceList {
-            margin-top: 20px;
-            text-align: center;
+        button {
+            padding: 5px 10px;
         }
-
-        #priceList table {
-            margin: 0 auto;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        #priceList th, #priceList td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        #priceList th {
-            background-color: #f2f2f2;
-        }
-
     </style>
 </head>
-
 <body>
-    <img id="logo" src="images/logo.png" alt="Logo">
-    <div id="calculator">
-        <h2>Calculadora</h2>
-        <input type="tel" id="inputNumber" placeholder="Cantidad" pattern="[0-9]*" oninput="checkInput()">
-    </div>
-    <table>
-  <tr>
-    <th>Column 1</th>
-    <th>maiz</th>
-    <th>harina 3</th>
-    <th>gordita 4</th>
-    <th>bocol 5</th>
-  </tr>
-  <tr>
-    <td><a href="#">carne deshebrada</a></td>
-    <td><a onclick="calculateTotal('Gordita de carne', 19)">Maiz</a></td>
-    <td><a href="#">harina</a></td>
-    <td><a href="#">gordita</a></td>
-    <td><a href="#">bocol</a></td>
-  </tr>
-  <tr>
-    <td><a href="#">Cell 2-1</a></td>
-    <td><a href="#">Cell 2-2</a></td>
-    <td><a href="#">Cell 2-3</a></td>
-    <td><a href="#">Cell 2-4</a></td>
-    <td><a href="#">Cell 2-5</a></td>
-  </tr>
-  <!-- Add more rows as needed -->
-</table>
-    <div id="rectangles">
-        <div class="rectangle-container">
-            <div class="body" >Carne deshebrada</div>
-            <div class="rectangle" onclick="calculateTotal('Envio por Km', 50, 5)">Envio por Km</div>
-            <div class="rectangle" onclick="calculateTotal('Envio por Km', 50, 5)">Envio por Km</div>
-            <div class="rectangle" onclick="calculateTotal('Envio por Km', 50, 5)">Envio por Km</div>
-            <div class="rectangle" onclick="calculateTotal('Envio por Km', 50, 5)">Envio por Km</div>
+
+<h1>Point of Sale System</h1>
+
+<div class="container">
+    <div class="products">
+        <h2>Products</h2>
+        <div class="product" data-id="1" data-name="Product 1" data-price="10">
+            <span>Product 1</span>
+            <span>$10</span>
+            <button onclick="addToCart(this)">Add to Cart</button>
         </div>
-        <div class="rectangle-container">
-            <div class="rectangle" onclick="calculateTotal('Gordita de carne', 19)">Gordita de carne</div>
-            <div class="rectangle" onclick="calculateTotal('Gordita de guiso', 17)">Gordita de guiso</div>
+        <div class="product" data-id="2" data-name="Product 2" data-price="15">
+            <span>Product 2</span>
+            <span>$15</span>
+            <button onclick="addToCart(this)">Add to Cart</button>
         </div>
-        <div class="rectangle-container">
-            <div class="rectangle" onclick="calculateTotal('Bocol de carne', 22)">Bocol de carne</div>
-            <div class="rectangle" onclick="calculateTotal('Bocol de guiso', 20)">Bocol de guiso</div>
-        </div>
-         <div class="rectangle-container">
-            <div class="rectangle" onclick="calculateTotal('Torta Jumbo', 95)">Torta Jumbo</div>
-            <div class="rectangle" onclick="calculateTotal('Torta Tradicional', 70)">Torta Tradicional</div>
-        </div>
-        <div class="rectangle-container">
-            <div class="rectangle" onclick="calculateTotal('Pemoles', 50)">Pemoles</div>
-            <div class="rectangle" onclick="calculateTotal('Tampiconada', 30)">Tampiconada</div>
-        </div>
-        <div class="rectangle-container">
-            <div class="rectangle" onclick="calculateTotal('Refresco / avia', 35)">Refresco / avia</div>
-            <div class="rectangle" onclick="calculateTotal('Agua Natural / cafe', 25)">A. Natural / cafe</div>
-        </div>
-    </div>
-    <div id="output">
-        <h2>Cuenta</h2>
-        <ul id="outputList"></ul>
-        <p id="total">Total: $0.00</p>
+        <!-- Add more products as needed -->
     </div>
 
-    <div id="priceList">
-        <h2>Lista de Precios</h2>
-        <table>
-            <tr>
-                <th>Producto</th>
-                <th>Precio (MXN)</th>
-            </tr>
-            <tr>
-                <td>Taco de pibil</td>
-                <td>$19.00</td>
-            </tr>
-            <tr>
-                <td>Gordita de carne</td>
-                <td>$19.00</td>
-            </tr>
-            <tr>
-                <td>Gordita de guiso</td>
-                <td>$17.00</td>
-            </tr>
-            <tr>
-                <td>Bocol de carne</td>
-                <td>$22.00</td>
-            </tr>
-            <tr>
-                <td>Bocol de guiso</td>
-                <td>$20.00</td>
-            </tr>
-             <tr>
-                <td>Torta Jumbo</td>
-                <td>$95.00</td>
-            </tr>
-            <tr>
-                <td>Torta Tradicional</td>
-                <td>$70.00</td>
-            </tr>
-            <tr>
-                <td>Pemoles</td>
-                <td>$50.00</td>
-            </tr>
-             <tr>
-                <td>Tampiconada</td>
-                <td>$30.00</td>
-            </tr>
-            <tr>
-                <td>Refresco / Avia</td>
-                <td>$35.00</td>
-            </tr>
-            <tr>
-                <td>Agua Natural / Cafe</td>
-                <td>$25.00</td>
-            </tr>
-            <tr>
-                <td>Envio</td>
-                <td>$50.00 primer kilometro, $5.00 por km adicional</td>
-            </tr>
-        </table>
+    <div class="cart">
+        <h2>Cart</h2>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            <strong>Total: $<span id="total-price">0</span></strong>
+        </div>
+        <button onclick="processSale()">Process Sale</button>
     </div>
+</div>
 
-    <script>
-        let total = 0;
+<script>
+    let cart = [];
 
-        function calculateTotal(itemName, multiplier, extra = 0) {
-            const inputNumber = document.getElementById('inputNumber');
-            let inputValue = parseFloat(inputNumber.value);
-            if (isNaN(inputValue) || inputValue <= 0) {
-                inputValue = 1;
-            }
-            let itemTotal;
-            if (itemName === 'Envio por Km') {
-                itemTotal = multiplier + (inputValue - 1) * extra;
-            } else {
-                itemTotal = inputValue * multiplier;
-            }
-            total += itemTotal;
+    function addToCart(button) {
+        const product = button.parentElement;
+        const id = product.getAttribute('data-id');
+        const name = product.getAttribute('data-name');
+        const price = parseFloat(product.getAttribute('data-price'));
 
-            const outputList = document.getElementById('outputList');
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `${itemName} (${inputValue}): $${itemTotal.toFixed(2)} <span class="close-btn" onclick="removeItem(this)">x</span>`;
-            outputList.appendChild(listItem);
-
-            document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
-            inputNumber.value = '';
+        const cartItem = cart.find(item => item.id === id);
+        if (cartItem) {
+            cartItem.quantity += 1;
+        } else {
+            cart.push({ id, name, price, quantity: 1 });
         }
 
-        function checkInput() {
-            const inputNumber = document.getElementById('inputNumber');
-            if (inputNumber.value < 0) {
-                inputNumber.value = 0;
-            }
-        }
+        renderCart();
+    }
 
-        function removeItem(element) {
-            const listItem = element.parentNode;
-            const amountText = listItem.textContent.split('$')[1];
-            const itemAmount = parseFloat(amountText);
-            total -= itemAmount;
+    function renderCart() {
+        const cartItemsDiv = document.getElementById('cart-items');
+        cartItemsDiv.innerHTML = '';
 
-            listItem.remove();
-
-            document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
-        }
-
-        const rectangles = document.querySelectorAll('.rectangle');
-        rectangles.forEach(rectangle => {
-            rectangle.addEventListener('click', () => {
-                rectangles.forEach(r => r.classList.remove('clicked'));
-                rectangle.classList.add('clicked');
-                setTimeout(() => {
-                    rectangle.classList.remove('clicked');
-                }, 200);
-            });
+        let totalPrice = 0;
+        cart.forEach(item => {
+            totalPrice += item.price * item.quantity;
+            const cartItemDiv = document.createElement('div');
+            cartItemDiv.className = 'cart-item';
+            cartItemDiv.innerHTML = `
+                <span>${item.name} (x${item.quantity})</span>
+                <span>$${item.price * item.quantity}</span>
+                <button onclick="removeFromCart('${item.id}')">Remove</button>
+            `;
+            cartItemsDiv.appendChild(cartItemDiv);
         });
-    </script>
-</body>
 
+        document.getElementById('total-price').innerText = totalPrice.toFixed(2);
+    }
+
+    function removeFromCart(id) {
+        const cartItemIndex = cart.findIndex(item => item.id === id);
+        if (cartItemIndex > -1) {
+            cart[cartItemIndex].quantity -= 1;
+            if (cart[cartItemIndex].quantity === 0) {
+                cart.splice(cartItemIndex, 1);
+            }
+        }
+
+        renderCart();
+    }
+
+    function processSale() {
+        if (cart.length === 0) {
+            alert('Your cart is empty.');
+            return;
+        }
+
+        alert('Sale processed successfully.');
+        cart = [];
+        renderCart();
+    }
+</script>
+
+</body>
 </html>
