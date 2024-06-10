@@ -1,26 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Point of Sale</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Mesas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
         }
         .container {
-            display: flex;
+            margin: 20px;
         }
-        .products, .cart {
+        .mesa {
             border: 1px solid #ddd;
             padding: 10px;
-            margin: 10px;
-        }
-        .product, .cart-item {
-            display: flex;
-            justify-content: space-between;
             margin-bottom: 10px;
         }
-        .cart-item {
-            align-items: center;
+        .plato {
+            margin-left: 20px;
+            margin-bottom: 5px;
         }
         button {
             padding: 5px 10px;
@@ -29,94 +27,54 @@
 </head>
 <body>
 
-<h1>Point of Sale System</h1>
-
 <div class="container">
-    <div class="products">
-        <h2>Products</h2>
-        <div class="product" data-id="1" data-name="Product 1" data-price="10">
-            <span>Product 1</span>
-            <span>$10</span>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-        <div class="product" data-id="2" data-name="Product 2" data-price="15">
-            <span>Product 2</span>
-            <span>$15</span>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-        <!-- Add more products as needed -->
-    </div>
-
-    <div class="cart">
-        <h2>Cart</h2>
-        <div id="cart-items"></div>
-        <div class="cart-total">
-            <strong>Total: $<span id="total-price">0</span></strong>
-        </div>
-        <button onclick="processSale()">Process Sale</button>
-    </div>
+    <h1>Gestión de Mesas</h1>
+    <button onclick="agregarMesa()">Agregar Mesa</button>
+    <div id="mesas"></div>
 </div>
 
 <script>
-    let cart = [];
+    let mesaId = 0;
 
-    function addToCart(button) {
-        const product = button.parentElement;
-        const id = product.getAttribute('data-id');
-        const name = product.getAttribute('data-name');
-        const price = parseFloat(product.getAttribute('data-price'));
+    function agregarMesa() {
+        mesaId++;
+        const mesaDiv = document.createElement('div');
+        mesaDiv.className = 'mesa';
+        mesaDiv.id = `mesa-${mesaId}`;
 
-        const cartItem = cart.find(item => item.id === id);
-        if (cartItem) {
-            cartItem.quantity += 1;
-        } else {
-            cart.push({ id, name, price, quantity: 1 });
-        }
+        const mesaNombre = prompt("Ingrese el nombre de la mesa:");
+        mesaDiv.innerHTML = `
+            <h2>Mesa: ${mesaNombre || 'Sin nombre'}</h2>
+            <button onclick="agregarPlato(${mesaId})">Agregar Plato</button>
+            <div id="platos-${mesaId}"></div>
+        `;
 
-        renderCart();
+        document.getElementById('mesas').appendChild(mesaDiv);
     }
 
-    function renderCart() {
-        const cartItemsDiv = document.getElementById('cart-items');
-        cartItemsDiv.innerHTML = '';
+    function agregarPlato(mesaId) {
+        const platoDiv = document.createElement('div');
+        platoDiv.className = 'plato';
+        
+        const platoNombre = prompt("Ingrese el nombre del plato:");
+        platoDiv.innerHTML = `
+            <span>${platoNombre || 'Plato sin nombre'}</span>
+            <button onclick="agregarPlatillo(this)">Agregar Platillo</button>
+            <div class="platillos"></div>
+        `;
 
-        let totalPrice = 0;
-        cart.forEach(item => {
-            totalPrice += item.price * item.quantity;
-            const cartItemDiv = document.createElement('div');
-            cartItemDiv.className = 'cart-item';
-            cartItemDiv.innerHTML = `
-                <span>${item.name} (x${item.quantity})</span>
-                <span>$${item.price * item.quantity}</span>
-                <button onclick="removeFromCart('${item.id}')">Remove</button>
-            `;
-            cartItemsDiv.appendChild(cartItemDiv);
-        });
-
-        document.getElementById('total-price').innerText = totalPrice.toFixed(2);
+        document.getElementById(`platos-${mesaId}`).appendChild(platoDiv);
     }
 
-    function removeFromCart(id) {
-        const cartItemIndex = cart.findIndex(item => item.id === id);
-        if (cartItemIndex > -1) {
-            cart[cartItemIndex].quantity -= 1;
-            if (cart[cartItemIndex].quantity === 0) {
-                cart.splice(cartItemIndex, 1);
-            }
-        }
+    function agregarPlatillo(button) {
+        const platilloNombre = prompt("Ingrese el nombre del platillo:");
+        const platillosDiv = button.nextElementSibling;
+        
+        const platilloDiv = document.createElement('div');
+        platilloDiv.className = 'platillo';
+        platilloDiv.innerText = platilloNombre || 'Platillo sin nombre';
 
-        renderCart();
-    }
-
-    function processSale() {
-        if (cart.length === 0) {
-            alert('Your cart is empty.');
-            return;
-        }
-
-        alert('Sale processed successfully.');
-        cart = [];
-        renderCart();
+        platillosDiv.appendChild(platilloDiv);
     }
 </script>
 
