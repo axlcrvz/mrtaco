@@ -394,6 +394,15 @@ button:hover,
 .button.button-gitlab:focus {
   filter: brightness(90%);
 }
+/* mrtaco */
+.button.button-mrtaco {
+  color: #ffffff;
+  background-color: #FF1E00;
+}
+.button.button-gitlab:hover,
+.button.button-gitlab:focus {
+  filter: brightness(90%);
+}
 
 /* Goodreads */
 .button.button-goodreads {
