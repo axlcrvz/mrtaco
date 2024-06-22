@@ -397,10 +397,10 @@ button:hover,
 /* mrtaco */
 .button.button-mrtaco {
   color: #ffffff;
-  background-color: #FF1E00;
+  background-color: #4CAF50;
 }
-.button.button-gitlab:hover,
-.button.button-gitlab:focus {
+.button.button-mrtaco:hover,
+.button.button-mrtaco:focus {
   filter: brightness(90%);
 }
 
