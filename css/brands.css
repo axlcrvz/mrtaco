@@ -87,22 +87,17 @@ button:hover,
 }
   
 /* Default (this is great for your own brand color!) */
-```css
 .button.button-default {
   color: #ffffff;
-  background-image: linear-gradient(to right, #FF0000, #FF8200);
-  background-size: 100% 100%;
-  background-position: 0% 0%;
-  transition: background-position 0.5s ease-out;
+  background: linear-gradient(to right, #FF0000, #FF8200);
+  border: none; /* Add this if you want to remove any default borders */
 }
 
 .button.button-default:hover,
 .button.button-default:focus {
   filter: brightness(90%);
-  background-position: 100% 0%;
 }
 
-```
 .button.button-medusa {
   color: #ffffff;
   background-color: #5A31F4;
