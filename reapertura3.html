@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <style>/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #e0e0e0;
+    background: #1c1c1c;
+}
+
+/* Header Styles */
+header {
+    background: #000;
+    padding: 20px 40px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav ul li a:hover {
+    color: #ff8200;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #ff0000, #ff8200);
+    color: #fff;
+    text-align: center;
+    padding: 150px 20px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.hero .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #fff;
+    color: #ff0000;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, color 0.3s;
+}
+
+.hero .btn:hover {
+    background: #ff8200;
+    color: #fff;
+}
+
+/* Menu Section */
+.menu {
+    padding: 80px 20px;
+    text-align: center;
+    background: #333;
+}
+
+.menu h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.menu-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #444;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.menu-item h3 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.menu-item p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.menu-item span {
+    font-size: 1.5em;
+    color: #ff8200;
+}
+
+/* About Section */
+.about {
+    padding: 80px 20px;
+    text-align: center;
+    background: #222;
+}
+
+.about h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.contact p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.contact form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.contact form input, 
+.contact form textarea {
+    width: calc(100% - 20px);
+    padding: 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #444;
+    color: #e0e0e0;
+}
+
+.contact form button {
+    padding: 15px 25px;
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.contact form button:hover {
+    background: #ff8200;
+}
+
+/* Footer Styles */
+footer {
+    background: #000;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+    color: #e0e0e0;
+}
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Welcome to Our Restaurant</h1>
+        <a href="#menu" class="btn">See Our Menu</a>
+    </section>
+
+    <section id="menu" class="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-item">
+            <h3>Dish Name</h3>
+            <p>Description of the dish.</p>
+            <span>$Price</span>
+        </div>
+        <!-- Add more menu items here -->
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>We are passionate about serving the best food with exceptional service.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Address: 123 Restaurant St, Food City</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Email: info@restaurant.com</p>
+        <form action="submit_form.php" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Restaurant. All rights reserved.</p>
+    </footer>
+</body>
+</html>
