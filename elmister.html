@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Bistro</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f2f2f2;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #333;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF8200; /* Accent color for logo */
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: #f2f2f2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #FF8200; /* Hover effect */
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            background-image: linear-gradient(to right, #FF0000, #FF8200);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #003366; /* Navy blue */
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #00509E; /* Lighter navy for hover */
+            transform: translateY(-2px);
+        }
+
+        /* About Section Styles */
+        .about {
+            padding: 80px 20px;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .about img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Menu Highlights Section Styles */
+        .menu-highlights {
+            padding: 80px 20px;
+            background-color: #333;
+        }
+
+        .menu-highlights h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .dish {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .dish img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .dish h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .dish p {
+            font-size: 16px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Gourmet Bistro</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Reservations</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to Gourmet Bistro</h1>
+            <p>Taste the Tradition with Every Bite</p>
+            <a href="#" class="cta-button">Make a Reservation</a>
+        </section>
+
+        <section class="about">
+            <h2>About Us</h2>
+            <p>At Gourmet Bistro, we believe in creating unforgettable dining experiences through locally sourced ingredients and time-honored recipes. Our chefs are passionate about delivering flavors that tell a story.</p>
+            <img src="about-us-image.jpg" alt="Our Team">
+        </section>
+
+        <section class="menu-highlights">
+            <h2>Featured Dishes</h2>
+            <div class="dish">
+                <img src="dish1.jpg" alt="Dish 1">
+                <div>
+                    <h3>Signature Pasta</h3>
+                    <p>Freshly made pasta tossed in our secret sauce.</p>
+                </div>
+            </div>
+            <div class="dish">
+                <img src="dish2.jpg" alt="Dish 2">
+                <div>
+                    <h3>Grilled Salmon</h3>
+                    <p>Perfectly grilled salmon served with seasonal vegetables.</p>
+                </div>
+            </div>
+            <a href="#" class="cta-button">View Full Menu</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Gourmet Bistro. All rights reserved.</p>
+    </footer>
+</body>
+</html>
